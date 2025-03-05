@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_email'] = $email;
             $_SESSION['username'] = $row['user_name'];
             
-            header("Location: index.html");
+            header("Location: index.php");
             exit(); // Prevent further execution
         } else {
             $showError = "Invalid username or password.";

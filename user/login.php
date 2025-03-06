@@ -25,7 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['username'] = $row['user_name'];
             
 <<<<<<< HEAD:user/login.php
+<<<<<<< HEAD:user/login.php
             header("Location: ../home.php");
+=======
+            header("Location: index.php");
+>>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf:login.php
 =======
             header("Location: index.php");
 >>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf:login.php

@@ -1,10 +1,16 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
 <?php
     include("user/config.php");
     session_start();
 ?>
 
+<<<<<<< HEAD
+>>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
+=======
 >>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -42,6 +48,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     <header>
@@ -85,6 +92,8 @@
     </header>
 
 =======
+=======
+>>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
 <header>
     <div class="header-area">
         <div id="sticky-header" class="main-header-area">
@@ -141,6 +150,9 @@
     
     
     
+<<<<<<< HEAD
+>>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
+=======
 >>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
     <!-- header-end -->
 
@@ -154,7 +166,11 @@
                             <div class="slider_text text-center">
                                 <h3>Goa</h3>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <p>"Goa, the land of fun and friends"</p>
+=======
+                                <p>"Goa is known for its famous beaches, culture, climate, and historical places"</p>
+>>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
 =======
                                 <p>"Goa is known for its famous beaches, culture, climate, and historical places"</p>
 >>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf

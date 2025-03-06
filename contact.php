@@ -283,7 +283,11 @@
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 <<<<<<< HEAD:contact.php
+<<<<<<< HEAD:contact.php
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by itravel 
+=======
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <span>SJS Brother's</span>
+>>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf:contact.html
 =======
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <span>SJS Brother's</span>
 >>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf:contact.html

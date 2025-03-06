@@ -34,76 +34,47 @@
 </head>
 
 <body>
-    <header>
-        <div class="header-area ">
-            <div id="sticky-header" class="main-header-area">
-                <div class="container-fluid">
-                    <div class="header_bottom_border">
-                        <div class="row align-items-center">
-                            <div class="col-xl-2 col-lg-2">
-                                <div class="logo">
-                                    <a href="index.html">
-                                        <img src="img/logoo.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6">
-                                <div class="main-menu  d-none d-lg-block">
-                                    <nav>
-                                        <ul id="navigation">
-                                            <li><a class="active" href="index.html">home</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a class="" href="travel_destination.html">Destination</a></l/li>
-                                            <li><a href="#">Packages<i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                        <li><a href="destination_details.html">Destinations details</a></li>
-                                                        <li><a href="elements.html">elements</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">blog</a></li>
-                                                    <li><a href="single-blog.html">single-blog</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <!-- <li><a href="login.php" class="btn btn-info px-2 py-1">Login</a></li> -->
-                                            <li><a href="login.html" class="btn px-2 py-1" style="background-color: #d4411d; color: white;">Login</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 d-none d-lg-block">
-                                <div class="social_wrap d-flex align-items-center justify-content-end">
-                                    <div class="number">
-                                        <p> <i class="fa fa-phone"></i> +91 1234567890</p>
-                                    </div>
-                                    <div class="social_links d-none d-xl-block">
-                                        <ul>
-                                            <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>
-                                            <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-                                            <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>  
-                                        </ul>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            <div class="seach_icon">
-                               
-                                <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
-                                    <i class="fa fa-search"></i>
-                                </a>
-                            </div>
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
-                        </div>
-                    </div>
 
+    <header>
+        <div class="header-area">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg navbar-light" style="min-height: 70px;">
+                        <a class="navbar-brand" href="index.php">
+                            <img src="img/logoo.png" alt="" class="img-fluid" style="max-height: 60px;">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item"><a class="nav-link active px-3 py-2" href="index.php">Home</a></li>
+                                <li class="nav-item"><a class="nav-link px-3 py-2" href="about.php">About</a></li>
+                                <li class="nav-item"><a class="nav-link px-3 py-2" href="#">Destination</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle px-3 py-2" href="#" id="packagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Packages</a>
+                                    <ul class="dropdown-menu" aria-labelledby="packagesDropdown">
+                                        <li><a class="dropdown-item" href="#">Destinations details</a></li>
+                                        <li><a class="dropdown-item" href="#">Elements</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle px-3 py-2" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
+                                    <ul class="dropdown-menu" aria-labelledby="blogDropdown">
+                                        <li><a class="dropdown-item" href="#">Blog</a></li>
+                                        <li><a class="dropdown-item" href="#">Single Blog</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a class="nav-link px-3 py-2" href="contact.php">Contact</a></li>
+                            </ul>
+                            <a href="user/login.php" class="btn btn-danger px-4 py-2">Login</a>
+                        </div>
+                    </nav>
                 </div>
             </div>
         </div>
     </header>
+
     <!-- header-end -->
 
     <!-- slider_area_start -->
@@ -115,7 +86,7 @@
                         <div class="col-xl-12 col-md-12">
                             <div class="slider_text text-center">
                                 <h3>Goa</h3>
-                                <p>"Goa is known for its famous beaches, culture, climate, and historical places"</p>
+                                <p>"Goa, the land of fun and friends"</p>
                                 <a href="#" class="boxed-btn3">Explore Now</a>
                             </div>
                         </div>
@@ -517,9 +488,9 @@
                                         <div class="author_thumb">
                                             <img src="img/testmonial/author.png" alt="">
                                         </div>
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
+                                        <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, ab. Earum vero reiciendis voluptatum totam modi obcaecati veritatis doloribus nam?"</p>
                                         <div class="testmonial_author">
-                                            <h3>- Micky Mouse</h3>
+                                            <h3>- Jittu Dabhi</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -532,9 +503,9 @@
                                         <div class="author_thumb">
                                             <img src="img/testmonial/author.png" alt="">
                                         </div>
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
+                                        <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, ab. Earum vero reiciendis voluptatum totam modi obcaecati veritatis doloribus nam?"</p>
                                         <div class="testmonial_author">
-                                            <h3>- Tom Mouse</h3>
+                                            <h3>- Smit Soni</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -547,9 +518,9 @@
                                         <div class="author_thumb">
                                             <img src="img/testmonial/author.png" alt="">
                                         </div>
-                                        <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering.</p>
+                                        <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, ab. Earum vero reiciendis voluptatum totam modi obcaecati veritatis doloribus nam?"</p>
                                         <div class="testmonial_author">
-                                            <h3>- Jerry Mouse</h3>
+                                            <h3>- Smit Rana</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -576,15 +547,14 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single_trip">
                         <div class="thumb">
-                            <img src="img/trip/1.png" alt="">
+                            <img src="img/trip/uttarakhand.jpg" alt="">
                         </div>
                         <div class="info">
                             <div class="date">
-                                <span>Oct 12, 2019</span>
+                                <span>Feb 15,2025</span>
                             </div>
                             <a href="#">
-                                <h3>Journeys Are Best Measured In
-                                    New Friends</h3>
+                                <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
                             </a>
                         </div>
                     </div>
@@ -592,15 +562,14 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single_trip">
                         <div class="thumb">
-                            <img src="img/trip/2.png" alt="">
+                            <img src="img/trip/rajasthan.jpg" alt="">
                         </div>
                         <div class="info">
                             <div class="date">
-                                <span>Oct 12, 2019</span>
+                                <span>Feb 08,2025</span>
                             </div>
                             <a href="#">
-                                <h3>Journeys Are Best Measured In
-                                    New Friends</h3>
+                                <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
                             </a>
                         </div>
                     </div>
@@ -608,15 +577,14 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single_trip">
                         <div class="thumb">
-                            <img src="img/trip/3.png" alt="">
+                            <img src="img/trip/gujarat.jpg" alt="">
                         </div>
                         <div class="info">
                             <div class="date">
-                                <span>Oct 12, 2019</span>
+                                <span>Feb 02, 2025</span>
                             </div>
                             <a href="#">
-                                <h3>Journeys Are Best Measured In
-                                    New Friends</h3>
+                                <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
                             </a>
                         </div>
                     </div>
@@ -780,6 +748,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script> -->
     <!-- JS here -->
+     <!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <script src="js/popper.min.js"></script>

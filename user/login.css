@@ -1,0 +1,128 @@
+body.login-page {
+    background: url('../img/login-page.jpg')  no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+body.register-page {
+    /* background: url('../img/register-page.jpg')  no-repeat center center fixed; */
+    background: url('../img/register-page.jpg')  no-repeat center center fixed;
+
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    background: rgba(63, 60, 60, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 450px;
+    height: auto;
+    animation: fadeIn 1s ease-in-out;
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-group label {
+    color: #f5eded;
+}
+
+.form-group :hover{
+    cursor: pointer;
+}
+.form-control {
+    border-radius: 5px;
+}
+
+.btn-primary {
+    width: 100%;
+    border-radius: 20px;
+    background: #007bff;
+    border: none;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+/* Ensure alerts do not affect background */
+.alert-active {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: black;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* Style for forgot password and register links */
+.forgot-register {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.forgot-register span{
+    color: #f5eded;
+}
+.forgot-register a {
+    color: #5f9de5;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.forgot-register a:hover {
+    color: #a4bdd7;
+    text-decoration: underline;
+}
+
+/* Style for already register links */
+
+.al-register {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.al-register span{
+    color: #f5eded;
+    
+}
+.al-register a {
+    color: #5f9de5;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.al-register a:hover {
+    color: #a4bdd7;
+    text-decoration: underline;
+}

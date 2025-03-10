@@ -1,23 +1,10 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
 <?php
-    include("user/config.php");
+    include("config.php");
     session_start();
 ?>
-
-<<<<<<< HEAD
->>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
-=======
->>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
 <!doctype html>
 <html class="no-js" lang="zxx">
 
-
-<!-- Mirrored from themewagon.github.io/travelo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Feb 2025 11:55:17 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -48,52 +35,7 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-    <header>
-        <div class="header-area">
-            <div id="sticky-header" class="main-header-area">
-                <div class="container">
-                    <nav class="navbar navbar-expand-lg navbar-light" style="min-height: 70px;">
-                        <a class="navbar-brand" href="index.php">
-                            <img src="img/logoo.png" alt="" class="img-fluid" style="max-height: 60px;">
-                        </a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item"><a class="nav-link active px-3 py-2" href="index.php">Home</a></li>
-                                <li class="nav-item"><a class="nav-link px-3 py-2" href="about.php">About</a></li>
-                                <li class="nav-item"><a class="nav-link px-3 py-2" href="#">Destination</a></li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle px-3 py-2" href="#" id="packagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Packages</a>
-                                    <ul class="dropdown-menu" aria-labelledby="packagesDropdown">
-                                        <li><a class="dropdown-item" href="#">Destinations details</a></li>
-                                        <li><a class="dropdown-item" href="#">Elements</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle px-3 py-2" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                                    <ul class="dropdown-menu" aria-labelledby="blogDropdown">
-                                        <li><a class="dropdown-item" href="#">Blog</a></li>
-                                        <li><a class="dropdown-item" href="#">Single Blog</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a class="nav-link px-3 py-2" href="contact.php">Contact</a></li>
-                            </ul>
-                            <a href="user/login.php" class="btn btn-danger px-4 py-2">Login</a>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-
-=======
-=======
->>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
 <header>
     <div class="header-area">
         <div id="sticky-header" class="main-header-area">
@@ -137,7 +79,7 @@
                                         </ul>
                                       </div>';
                             } else {
-                                echo '<a href="login.php" class="btn btn-danger px-4 py-2">Login</a>';
+                                echo '<a href="user/login.php" class="btn btn-danger px-4 py-2">Login</a>';
                             }
                         ?>
                     </div>
@@ -150,10 +92,6 @@
     
     
     
-<<<<<<< HEAD
->>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
-=======
->>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
     <!-- header-end -->
 
     <!-- slider_area_start -->
@@ -165,15 +103,9 @@
                         <div class="col-xl-12 col-md-12">
                             <div class="slider_text text-center">
                                 <h3>Goa</h3>
-<<<<<<< HEAD
-<<<<<<< HEAD
                                 <p>"Goa, the land of fun and friends"</p>
-=======
                                 <p>"Goa is known for its famous beaches, culture, climate, and historical places"</p>
->>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
-=======
                                 <p>"Goa is known for its famous beaches, culture, climate, and historical places"</p>
->>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf
                                 <a href="#" class="boxed-btn3">Explore Now</a>
                             </div>
                         </div>

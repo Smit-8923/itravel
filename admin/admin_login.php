@@ -5,32 +5,32 @@ $showError = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include "../config.php";
 
-    // Fetch and sanitize user input
+    // Fetch and sanitize admin input
     $email = $_POST['email'];
     $password = $_POST['password'];
 
     // Use prepared statement to prevent SQL injection
-    $sql = "select * from user_table where user_email = '$email'";
+    $sql = "select * from admin_table where admin_email = '$email'";
     $result = mysqli_query($connection,$sql);
     $num  = mysqli_num_rows($result);
-    // Check if the user exists
+    // Check if the admin exists
     if ($num ==1) {
         // Verify the hashed password
         $row = mysqli_fetch_assoc($result);
-        if (password_verify($password, $row['user_password'])) {
+        if (password_verify($password, $row['admin_password'])) {
             $login = true;
             session_start();
             $_SESSION['loggedin'] = true;
-            $_SESSION['user_email'] = $email;
-            $_SESSION['username'] = $row['user_name'];
+            $_SESSION['admin_email'] = $email;
+            $_SESSION['admin_name'] = $row['admin_name'];
             
-            header("Location: ../home.php");
+            header("Location: admin_dashboard.php");
             exit(); // Prevent further execution
         } else {
-            $showError = "Invalid username or password.";
+            $showError = "Invalid adminname or password.";
         }
     } else {
-        $showError = "Invalid username or password.";
+        $showError = "Invalid adminname or password.";
     }
 
    
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body class="login-page">
     
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php endif; ?>
 
     <div class="container mt-5">
-        <form action="login.php" method="post"> 
+        <form action="admin_login.php" method="post"> 
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter email..." required>
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button type="submit" class="btn btn-primary">Log in</button>
         </form>
         <div class="forgot-register">
-            <a href="#">Forgot Password?</a><a href="register.php">Create a New Account</a>
+            <a href="#">Forgot Password?</a><a href="admin_register.php">Create a New Account</a>
         </div>
     </div>
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'config.php'; // Include your database connection file
+include '../config.php'; // Include your database connection file
 
 if(!isset($_SESSION['user_email'])) {
     header("Location: login.php"); // Redirect if not logged in

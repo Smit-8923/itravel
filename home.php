@@ -1,5 +1,5 @@
 <?php
-    include("user/config.php");
+    include("config.php");
     session_start();
 ?>
 
@@ -82,7 +82,7 @@
                                         </ul>
                                       </div>';
                             } else {
-                                echo '<a href="login.php" class="btn btn-danger px-4 py-2">Login</a>';
+                                echo '<a href="user/login.php" class="btn btn-danger px-4 py-2">Login</a>';
                             }
                         ?>
                     </div>

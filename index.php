@@ -105,7 +105,6 @@
                                 <h3>Goa</h3>
                                 <p>"Goa, the land of fun and friends"</p>
                                 <p>"Goa is known for its famous beaches, culture, climate, and historical places"</p>
-                                <p>"Goa is known for its famous beaches, culture, climate, and historical places"</p>
                                 <a href="#" class="boxed-btn3">Explore Now</a>
                             </div>
                         </div>

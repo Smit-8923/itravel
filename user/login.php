@@ -24,14 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_email'] = $email;
             $_SESSION['username'] = $row['user_name'];
             
-<<<<<<< HEAD
 
             header("Location: ../home.php");
 
             header("Location: ../home.php");
 
-=======
->>>>>>> 3e02a3882bfbfbadfbd7b4983c4f5bb311e940df
             header("Location: ../home.php");
             exit(); // Prevent further execution
         } else {

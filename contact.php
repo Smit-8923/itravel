@@ -1,3 +1,8 @@
+<?php
+    include("config.php");
+    session_start();
+?>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -27,50 +32,15 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/slicknav.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/feedback.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
 <body>
-   
-<header>
-        <div class="header-area">
-            <div id="sticky-header" class="main-header-area">
-                <div class="container">
-                    <nav class="navbar navbar-expand-lg navbar-light" style="min-height: 70px;">
-                        <a class="navbar-brand" href="index.php">
-                            <img src="img/logoo.png" alt="" class="img-fluid" style="max-height: 60px;">
-                        </a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item"><a class="nav-link px-3 py-2" href="index.php">Home</a></li>
-                                <li class="nav-item"><a class="nav-link px-3 py-2" href="about.php">About</a></li>
-                                <li class="nav-item"><a class="nav-link px-3 py-2" href="#">Destination</a></li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle px-3 py-2" href="#" id="packagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Packages</a>
-                                    <ul class="dropdown-menu" aria-labelledby="packagesDropdown">
-                                        <li><a class="dropdown-item" href="#">Destinations details</a></li>
-                                        <li><a class="dropdown-item" href="#">Elements</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle px-3 py-2" href="#" id="blogDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                                    <ul class="dropdown-menu" aria-labelledby="blogDropdown">
-                                        <li><a class="dropdown-item" href="#">Blog</a></li>
-                                        <li><a class="dropdown-item" href="#">Single Blog</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a class="nav-link active px-3 py-2" href="contact.php">Contact</a></li>
-                            </ul>
-                            <a href="user/login.php" class="btn btn-danger px-4 py-2">Login</a>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+
+<?php
+   include("header.php") ;
+    ?>
 
     <!-- header-end -->
 
@@ -154,151 +124,46 @@
             </div>
         </section>
     <!-- ================ contact section end ================= -->
-    
-    <!-- footer start -->
-    <footer class="footer">
-        <div class="footer_top">
-            <div class="container">
+    <div class="container">
+    <div class="row">
+    <div class="col-12">
+        <h2 class="contact-title">Give Your Feedback</h2>
+    </div>
+    <div class="col-lg-8">
+            <form class="form-contact contact_form" action="feedback_process.php" method="post" id="feedbackForm" novalidate="novalidate">
                 <div class="row">
-                    <div class="col-xl-4 col-md-6 col-lg-4 ">
-                        <div class="footer_widget">
-                            <div class="footer_logo">
-                                <a href="#">
-                                    <img src="img/logoo.png" alt="">
-                                </a>
-                            </div>
-                            <p>L.J University <br> Ahmedabad, Gujarat <br>
-                                <a href="#">+91 1234567890</a> <br>
-                                <a href="#">www.itravel.com</a>
-                            </p>
-                            <div class="socail_links">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-twitter-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-pinterest"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-youtube-play"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                    
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input class="form-control valid" name="feedback_name" id="feedback_name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input class="form-control valid" name="feedback_email" id="feedback_email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Enter your email">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <textarea class="form-control w-100" name="feedback_message" id="feedback_message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Feedback'" placeholder="Enter Your Feedback"></textarea>
+                        </div>
+                    </div>
+                </div>
+        <div class="form-group mt-3">
+            <button type="submit" class="button button-contactForm boxed-btn">Submit Feedback</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
 
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-6 col-lg-2">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Company
-                            </h3>
-                            <ul class="links">
-                                <li><a href="#">Pricing</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#"> Gallery</a></li>
-                                <li><a href="#"> Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-lg-3">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Popular destination
-                            </h3>
-                            <ul class="links double_links">
-                                <li><a href="#">Gujarat</a></li>
-                                <li><a href="#">Mumbai</a></li>
-                                <li><a href="#">Delhi</a></li>
-                                <li><a href="#">Sikkim</a></li>
-                                <li><a href="#">Uttarakhand</a></li>
-                                <li><a href="#">Rajasthan</a></li>
-                                <li><a href="#">Punjab</a></li>
-                                <li><a href="#">Assam</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-lg-3">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Instagram
-                            </h3>
-                            <div class="instagram_feed">
-                                <div class="single_insta">
-                                    <a href="#">
-                                        <img src="img/instagram/1.png" alt="">
-                                    </a>
-                                </div>
-                                <div class="single_insta">
-                                    <a href="#">
-                                        <img src="img/instagram/2.png" alt="">
-                                    </a>
-                                </div>
-                                <div class="single_insta">
-                                    <a href="#">
-                                        <img src="img/instagram/3.png" alt="">
-                                    </a>
-                                </div>
-                                <div class="single_insta">
-                                    <a href="#">
-                                        <img src="img/instagram/4.png" alt="">
-                                    </a>
-                                </div>
-                                <div class="single_insta">
-                                    <a href="#">
-                                        <img src="img/instagram/5.png" alt="">
-                                    </a>
-                                </div>
-                                <div class="single_insta">
-                                    <a href="#">
-                                        <img src="img/instagram/6.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copy-right_text">
-            <div class="container">
-                <div class="footer_border"></div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <p class="copy_right text-center">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-<<<<<<< HEAD:contact.php
-<<<<<<< HEAD:contact.php
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by itravel 
-=======
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <span>SJS Brother's</span>
->>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf:contact.html
-=======
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <span>SJS Brother's</span>
->>>>>>> 21139f06e20de00239759b17b9bf7a2a636e3fcf:contact.html
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--/ footer end  -->
+
+    <!-- footer start -->
+    <?php
+   include("footer.php") ;
+    ?>
+<!--/ footer end  -->
     
   <!-- Modal -->
   <div class="modal fade custom_search_pop" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

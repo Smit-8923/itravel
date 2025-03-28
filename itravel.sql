@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2025 at 07:49 AM
+-- Generation Time: Mar 10, 2025 at 08:51 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `itravel`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_table`
+--
+
+CREATE TABLE `admin_table` (
+  `admin_id` int(3) NOT NULL,
+  `admin_name` varchar(100) NOT NULL,
+  `admin_email` varchar(100) NOT NULL,
+  `admin_mobile` varchar(14) NOT NULL,
+  `admin_dob` date NOT NULL,
+  `admin_password` varchar(255) NOT NULL,
+  `admin_doj` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin_table`
+--
+
+INSERT INTO `admin_table` (`admin_id`, `admin_name`, `admin_email`, `admin_mobile`, `admin_dob`, `admin_password`, `admin_doj`) VALUES
+(2, 'jitt', 'jitt@gmail.com', '65554', '2024-06-07', '$2y$10$BC/FLTwQuEn0XQ69qqulO.uc8J58k./76n18YLn0tceslwxDBHTMC', '2025-03-10 12:57:53');
 
 -- --------------------------------------------------------
 
@@ -42,12 +65,17 @@ CREATE TABLE `user_table` (
 --
 
 INSERT INTO `user_table` (`user_id`, `user_name`, `user_email`, `user_mobile`, `user_dob`, `user_password`, `user_doj`) VALUES
-(11, 'jitt', 'jitt@gmail.com', '7490941144', '2024-04-17', '$2y$10$zdA47CglS9gj/sfu.kb6.OVKQ4Kfb3jRWJO.NeDC70JpvRjZM7FfK', '2025-03-04 14:17:59'),
-(12, 'jitendra', 'jitendra@gmail.com', '656562', '2024-08-02', '$2y$10$q0s4fU.KCpeSl57PWQGzteA/UEYUPgxkj6DCU/L4XClt7mAM.gJUu', '2025-03-04 14:26:39');
+(16, 'jitendra', 'jitendra@gmail.com', '326327896', '2001-10-12', '$2y$10$uiJcjMUnjUyKIocdqF5dbeU7ntHPNbLQ0uwbTN.nQL1AGYP/zVIJK', '2025-03-10 13:08:31');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin_table`
+--
+ALTER TABLE `admin_table`
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `user_table`
@@ -61,10 +89,16 @@ ALTER TABLE `user_table`
 --
 
 --
+-- AUTO_INCREMENT for table `admin_table`
+--
+ALTER TABLE `admin_table`
+  MODIFY `admin_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `user_table`
 --
 ALTER TABLE `user_table`
-  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

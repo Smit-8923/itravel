@@ -2,7 +2,11 @@
 include("config.php");
 session_start();
 if (!isset($_SESSION['loggedin'])) {
-    header("location:user/login.php");
+    echo "<script>
+        alert('Please log in to submit feedback or contact us.');
+        window.location.href = 'user/login.php';
+    </script>";
+    exit();
 }
 ?>
 
@@ -70,22 +74,32 @@ if (!isset($_SESSION['loggedin'])) {
         $name = $_POST['name'];
         $email = $_POST['email'];
         $subject = $_POST['subject'];
+        if(empty($name) || empty($email) || empty($subject)) {
+            echo "<script>alert('All fields are required!'); window.history.back();</script>";
+            exit(); // Stop execution if validation fails
+        }
         $sql = "INSERT INTO `contact_table` (`contact_id`, `user_name`, `user_email`, `subject`,`contact_date`) VALUES (NULL, '$name', '$email', '$subject', current_timestamp());";
                
         $result = mysqli_query($connection,$sql );
         if ($result) {
             echo "<script>alert('Thank you ! We will reach you soon...');</script>";
+            
         }
     }
     elseif (isset($_POST['feedback_form'])) {
         $details = $_POST['feedback_message'];
         $user_name = $_SESSION['username'];
         $user_email = $_SESSION['user_email'];
+        if(empty($details)) {
+            echo "<script>alert('Write some feedback!'); window.history.back();</script>";
+            exit(); // Stop execution if validation fails
+        }
         $sql = "INSERT INTO `feedback_table` (`feedback_id`, `username`, `user_email`, `feedback_message`,`feedback_date`) VALUES (NULL, '$user_name', '$user_email', '$details', current_timestamp());";
                
         $result = mysqli_query($connection,$sql );
         if ($result) {
             echo "<script>alert('Thank you for your feedback');</script>";
+            
         }
     }
     
@@ -102,23 +116,23 @@ if (!isset($_SESSION['loggedin'])) {
                     <h2 class="contact-title">Get in Touch</h2>
                 </div>
                 <div class="col-lg-8">
-                <form class="form-contact contact_form" action="contact.php" method="post" id="contactForm" novalidate="novalidate">
+                <form class="form-contact contact_form" action="contact.php" method="post" id="contactForm" novalidate="novalidate" >
                     <div class="row">
                     <div class="col-sm-6">
                     <input type="hidden" name="contact_form" value="1">
                                 <div class="form-group">
-                                    <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                    <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+                                    <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email" required>
                                 </div>
                             </div>
                         
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control w-100" name="subject" id="contact_message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Feedback'" placeholder="Enter Your Feedback"></textarea>
+                                <textarea class="form-control w-100" name="subject" id="contact_message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Feedback'" placeholder="Subject.." required></textarea>
                             </div>
                         </div>
                     </div>
@@ -160,12 +174,12 @@ if (!isset($_SESSION['loggedin'])) {
                 <h2 class="contact-title">Give Your Feedback</h2>
             </div>
             <div class="col-lg-8">
-                <form class="form-contact contact_form" name="feedback_form"  action="contact.php" method="post" id="feedbackForm" novalidate="novalidate">
+                <form class="form-contact contact_form" name="feedback_form"  action="contact.php" method="post" id="feedbackForm" novalidate="novalidate" >
                     <div class="row">
 
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control w-100" name="feedback_message" id="feedback_message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Feedback'" placeholder="Enter Your Feedback"></textarea>
+                                <textarea class="form-control w-100" name="feedback_message" id="feedback_message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Feedback'" placeholder="Enter Your Feedback" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -217,7 +231,7 @@ if (!isset($_SESSION['loggedin'])) {
     <script src="js/gijgo.min.js"></script>
 
     <!--contact js-->
-    <!-- <script src="js/contact.js"></script>
+    <!-- <script src="js/contact.js"></script> -->
     <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/jquery.form.js"></script>
     <script src="js/jquery.validate.min.js"></script>
@@ -238,7 +252,7 @@ if (!isset($_SESSION['loggedin'])) {
             }
 
         });
-    </script> -->
+    </script>
 </body>
 
 

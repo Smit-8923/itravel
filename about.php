@@ -1,6 +1,6 @@
 <?php
-    include("config.php");
-    session_start();
+include("config.php");
+session_start();
 ?>
 
 <!doctype html>
@@ -8,7 +8,9 @@
 
 
 <!-- Mirrored from themewagon.github.io/travelo/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Feb 2025 11:55:51 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -40,8 +42,8 @@
 
 <body>
 
-<?php
-   include("header.php") ;
+    <?php
+    include("header.php");
     ?>
 
     <!-- header-end -->
@@ -60,7 +62,7 @@
         </div>
     </div>
     <!--/ bradcam_area  -->
-    
+
     <div class="about_story">
         <div class="container">
             <div class="row">
@@ -74,7 +76,7 @@
                                 <div class="row">
                                     <div class="col-lg-9">
                                         <p>iTravel (India Travel) started with a simple idea – to help people explore the beauty of India without any hassle. Our journey began with a small team of travel lovers who wanted to make trips easy, affordable, and fun. Today, we are a trusted name in travel, offering exciting destinations, well-planned tours, and 24/7 support. Based in Ahmedabad, we help travelers visit famous places like the Taj Mahal, Goa beaches, and the Himalayas. With honest service and happy customers, iTravel is your perfect travel partner. Let’s explore India together and create memories that last a lifetime!</p>
-                                <p>We believe that every trip should be stress-free and full of joy. Our goal is to make travel simple, safe, and unforgettable!</p>
+                                        <p>We believe that every trip should be stress-free and full of joy. Our goal is to make travel simple, safe, and unforgettable!</p>
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +98,7 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4">
                                         <div class="single_counter text-center">
-                                            <h3  class="counter">378</h3>
+                                            <h3 class="counter">378</h3>
                                             <p>Tour has done successfully</p>
                                         </div>
                                     </div>
@@ -121,22 +123,6 @@
         </div>
     </div>
 
-    <div class="video_area video_bg overlay">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="video_wrap text-center">
-                        <h3>Enjoy Video</h3>
-                        <div class="video_icon">
-                            <a class="popup-video video_play_button" href="https://www.youtube.com/watch?v=f59dDEk57i0">
-                                <i class="fa fa-play"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <div class="travel_variation_area">
@@ -173,64 +159,48 @@
         </div>
     </div>
 
+    <?php
+    include 'config.php'; // Include database connection
 
-    <!-- testimonial_area  -->
+    $sql = "SELECT username, feedback_message FROM feedback_table ORDER BY feedback_date DESC LIMIT 5";
+    $result = mysqli_query($connection, $sql);
+    ?>
+    <div class="section_title text-center mb-4">
+                        <h2>Customer Reviews</h2>
+                        <p>See what our happy customers are saying</p>
+                    </div>
+                    
+    <!-- Testimonial Area -->
     <div class="testimonial_area">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
+                    <!-- Customer Review Title -->
+                    <!-- Owl Carousel -->
                     <div class="testmonial_active owl-carousel">
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <div class="author_thumb">
-                                            <img src="img/testmonial/author.png" alt="">
-                                        </div>
-                                        <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, ab. Earum vero reiciendis voluptatum totam modi obcaecati veritatis doloribus nam?"</p>
-                                        <div class="testmonial_author">
-                                            <h3>- Jittu Dabhi</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <div class="author_thumb">
-                                            <img src="img/testmonial/author.png" alt="">
-                                        </div>
-                                        <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, ab. Earum vero reiciendis voluptatum totam modi obcaecati veritatis doloribus nam?"</p>
-                                        <div class="testmonial_author">
-                                            <h3>- Smit Soni</h3>
+                        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                            <div class="single_carousel">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8">
+                                        <div class="single_testmonial text-center">
+                                            <p>"<?php echo htmlspecialchars($row['feedback_message']); ?>"</p>
+                                            <div class="testmonial_author">
+                                                <h3>- <?php echo htmlspecialchars($row['username']); ?></h3>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <div class="author_thumb">
-                                            <img src="img/testmonial/author.png" alt="">
-                                        </div>
-                                        <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, ab. Earum vero reiciendis voluptatum totam modi obcaecati veritatis doloribus nam?"</p>
-                                        <div class="testmonial_author">
-                                            <h3>- Smit Rana</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /testimonial_area  -->
+    <!-- /Testimonial Area -->
+
+
+
 
 
     <div class="recent_trip_area">
@@ -295,20 +265,20 @@
 
 
     <?php
-   include("footer.php") ;
+    include("footer.php");
     ?>
 
-  <!-- Modal -->
-  <div class="modal fade custom_search_pop" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="serch_form">
-            <input type="text" placeholder="Search" >
-            <button type="submit">search</button>
+    <!-- Modal -->
+    <div class="modal fade custom_search_pop" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="serch_form">
+                    <input type="text" placeholder="Search">
+                    <button type="submit">search</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -331,7 +301,7 @@
     <script src="js/slick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    
+
     <!--contact js-->
     <script src="js/contact.js"></script>
     <script src="js/jquery.ajaxchimp.min.js"></script>
@@ -345,12 +315,13 @@
         $('#datepicker').datepicker({
             iconsLibrary: 'fontawesome',
             icons: {
-             rightIcon: '<span class="fa fa-caret-down"></span>'
-         }
+                rightIcon: '<span class="fa fa-caret-down"></span>'
+            }
         });
     </script>
 </body>
 
 
 <!-- Mirrored from themewagon.github.io/travelo/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Feb 2025 11:55:51 GMT -->
+
 </html>

@@ -446,61 +446,9 @@
 
 
     <!-- testimonial_area  -->
-    <div class="testimonial_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="testmonial_active owl-carousel">
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <div class="author_thumb">
-                                            <img src="img/testmonial/author.png" alt="">
-                                        </div>
-                                        <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, ab. Earum vero reiciendis voluptatum totam modi obcaecati veritatis doloribus nam?"</p>
-                                        <div class="testmonial_author">
-                                            <h3>- Jittu Dabhi</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <div class="author_thumb">
-                                            <img src="img/testmonial/author.png" alt="">
-                                        </div>
-                                        <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, ab. Earum vero reiciendis voluptatum totam modi obcaecati veritatis doloribus nam?"</p>
-                                        <div class="testmonial_author">
-                                            <h3>- Smit Soni</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_carousel">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <div class="single_testmonial text-center">
-                                        <div class="author_thumb">
-                                            <img src="img/testmonial/author.png" alt="">
-                                        </div>
-                                        <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, ab. Earum vero reiciendis voluptatum totam modi obcaecati veritatis doloribus nam?"</p>
-                                        <div class="testmonial_author">
-                                            <h3>- Smit Rana</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php
+    include("view_feedback.php");
+    ?>
     <!-- /testimonial_area  -->
 
 

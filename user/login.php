@@ -25,11 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['username'] = $row['user_name'];
             
 
-            header("Location: ../home.php");
+            header("Location: ../index.php");
 
-            header("Location: ../home.php");
-
-            header("Location: ../home.php");
             exit(); // Prevent further execution
         } else {
             $showError = "Invalid username or password.";

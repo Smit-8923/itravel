@@ -158,45 +158,12 @@ session_start();
             </div>
         </div>
     </div>
-
-    <?php
-    include 'config.php'; // Include database connection
-
-    $sql = "SELECT username, feedback_message FROM feedback_table ORDER BY feedback_date DESC LIMIT 5";
-    $result = mysqli_query($connection, $sql);
-    ?>
-    <div class="section_title text-center mb-4">
-                        <h2>Customer Reviews</h2>
-                        <p>See what our happy customers are saying</p>
-                    </div>
-                    
+                
     <!-- Testimonial Area -->
-    <div class="testimonial_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <!-- Customer Review Title -->
-                    <!-- Owl Carousel -->
-                    <div class="testmonial_active owl-carousel">
-                        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-                            <div class="single_carousel">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-8">
-                                        <div class="single_testmonial text-center">
-                                            <p>"<?php echo htmlspecialchars($row['feedback_message']); ?>"</p>
-                                            <div class="testmonial_author">
-                                                <h3>- <?php echo htmlspecialchars($row['username']); ?></h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php
+    include("view_feedback.php");
+    ?>
+
     <!-- /Testimonial Area -->
 
 

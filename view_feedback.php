@@ -1,7 +1,7 @@
 <?php
 include 'config.php'; // Database connection
 
-$limit = 5;
+$limit = 3;
 $sql = "SELECT username, feedback_message FROM feedback_table ORDER BY feedback_date DESC LIMIT $limit";
 $result = mysqli_query($connection, $sql);
 ?>
@@ -35,7 +35,7 @@ $result = mysqli_query($connection, $sql);
                 </div>
 
                 <div class="text-center mt-5">
-                    <a href="all_feedback.php" class="btn btn-primary">View More</a>
+                    <a href="all_feedback.php" class="boxed-btn4">View More</a>
                 </div>
             </div>
         </div>

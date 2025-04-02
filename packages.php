@@ -14,7 +14,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Travel</title>
+    <title>iTravel - packages</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -49,12 +49,12 @@ session_start();
     <!-- header-end -->
 
     <!-- bradcam_area  -->
-    <div class="bradcam_area bradcam_bg_3">
+    <div class="bradcam_area bradcam_bg_2">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text text-center">
-                        <h3>About Us</h3>
+                        <h3>Category</h3>
                         
                     </div>
                 </div>
@@ -63,70 +63,101 @@ session_start();
     </div>
     <!--/ bradcam_area  -->
 
-    <div class="about_story">
+    <div class="popular_destination_area">
         <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section_title text-center mb_70">
+                        <h3>All Category</h3>
+                        </div>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="story_heading">
-                        <h3>Our Story</h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-11 offset-lg-1">
-                            <div class="story_info">
-                                <div class="row">
-                                    <div class="col-lg-9">
-                                        <p>iTravel (India Travel) started with a simple idea – to help people explore the beauty of India without any hassle. Our journey began with a small team of travel lovers who wanted to make trips easy, affordable, and fun. Today, we are a trusted name in travel, offering exciting destinations, well-planned tours, and 24/7 support. Based in Ahmedabad, we help travelers visit famous places like the Taj Mahal, Goa beaches, and the Himalayas. With honest service and happy customers, iTravel is your perfect travel partner. Let’s explore India together and create memories that last a lifetime!</p>
-                                        <p>We believe that every trip should be stress-free and full of joy. Our goal is to make travel simple, safe, and unforgettable!</p>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-lg-4 col-md-6"><a href="packages.php">
+                    <div class="single_destination">
+                        <div class="thumb">
+
+                            <img src="img/package_dp/adventure.jfif">
+                        </div>
+                        <div class="content">
+                            <p class="d-flex align-items-center">Adventure  </p>
                             
                         </div>
                     </div>
+                </a>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_travel text-center">
-                        <div class="icon">
-                            <img src="img/svg_icon/1.svg" alt="">
-                        </div>
-                        <h3>Comfortable Journey</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_travel text-center">
-                        <div class="icon">
-                            <img src="img/svg_icon/2.svg" alt="">
-                        </div>
-                        <h3>Luxuries Hotel</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_travel text-center">
-                        <div class="icon">
-                            <img src="img/svg_icon/3.svg" alt="">
-                        </div>
-                        <h3>Travel Guide</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                <div class="col-lg-4 col-md-6"><a href="packages.php">
+                    <div class="single_destination">
+                        <div class="thumb">
 
-    
+                            <img src="img/package_dp/beaches.jpeg" alt="">
+                        </div>
+                        <div class="content">
+                            <p class="d-flex align-items-center">Beaches  </p>
+                            
+                        </div>
+                    </div>
+                </a>
+                </div>
+                <div class="col-lg-4 col-md-6"><a href="packages.php">
+                    <div class="single_destination">
+                        <div class="thumb">
+
+                            <img src="img/package_dp/hill station.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <p class="d-flex align-items-center">Hill Station  </p>
+                            
+                        </div>
+                    </div>
+                </a>
+                </div>
+                <div class="col-lg-4 col-md-6"><a href="packages.php">
+                    <div class="single_destination">
+                        <div class="thumb">
+
+                            <img src="img/package_dp/honeymoon.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <p class="d-flex align-items-center">Honeymoon  </p>
+                            
+                        </div>
+                    </div>
+                </a>
+                </div>
+                <div class="col-lg-4 col-md-6"><a href="packages.php">
+                    <div class="single_destination">
+                        <div class="thumb">
+
+                            <img src="img/package_dp/wildscape.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <p class="d-flex align-items-center"> Wildscapes</p>
+                            
+                        </div>
+                    </div>
+                </a>
+                </div>
+                <div class="col-lg-4 col-md-6"><a href="packages.php">
+                    <div class="single_destination">
+                        <div class="thumb">
+
+                            <img src="img/package_dp/religious.jpeg" alt="">
+                        </div>
+                        <div class="content">
+                            <p class="d-flex align-items-center">Religious  </p>
+                            
+                        </div>
+                    </div>
+                </a>
+                </div>
                 
-    <!-- Testimonial Area -->
-    <?php
-    include("view_feedback.php");
-    ?>
-
-    <!-- /Testimonial Area -->
-
-
+            </div>
+            
+        </div>
+        
+    </div>
+    
 
 
 

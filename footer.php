@@ -5,22 +5,20 @@
                 <div class="col-xl-4 col-md-6 col-lg-4 ">
                     <div class="footer_widget">
                         <div class="footer_logo">
-                            <a href="#">
+                            <a href="index.php">
                                 <img src="img/logoo.png" alt="">
                             </a>
                         </div>
                         <p>L.J University<br> Ahmedabad, Gujarat <br>
                             <a href="#">+91 1234567890</a> <br>
-                            <a href="#">www.itravel.com</a>
+                            <a href="index.php">www.itravel.com</a>
                         </p>
                         <div class="socail_links">
                             <ul>
-                                <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-                            </ul>
+                                <li><a href="https://www.facebook.com"><i class="ti-facebook"></i></a></li>
+                                <li><a href="https://x.com"><i class="ti-twitter-alt"></i></a></li>
+                                <li><a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
                         </div>
                     </div>
                 </div>
@@ -28,10 +26,10 @@
                     <div class="footer_widget">
                         <h3 class="footer_title">Company</h3>
                         <ul class="links">
-                            <li><a href="#">Pricing</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Gallery</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about.php">About</a></li>
+                            <li><a href="packages.php">Packages</a></li>
+                            <li><a href="contact.php">Contact</a></li>
                         </ul>
                     </div>
                 </div>

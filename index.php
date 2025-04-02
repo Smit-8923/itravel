@@ -103,22 +103,13 @@
                         <h3>Where you want to go?</h3>
                     </div>
                 </div>
-                <div class="col-lg-9">
+                <div class="col-lg-8">
                     <div class="search_wrap">
                         <form class="search_form" action="#">
                             <div class="input_field">
                                 <input type="text" placeholder="Where to go?">
                             </div>
-                            <div class="input_field">
-                                <input id="datepicker" placeholder="Date">
-                            </div>
-                            <div class="input_field">
-                                <select>
-                                    <option data-display="Travel type">Travel type</option>
-                                    <option value="1">Some option</option>
-                                    <option value="2">Another option</option>
-                                </select>
-                            </div>
+                            
                             <div class="search_btn">
                                 <button class="boxed-btn4 " type="submit" >Search</button>
                             </div>
@@ -136,81 +127,64 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="section_title text-center mb_70">
-                        <h3>Popular Destination</h3>
+                        <h3>Popular Packages</h3>
                         <p>"To me, India’s always represented ‘everything’; it represents ‘all.’ Everything is here. You can stay here forever, and you’ll never feel like you’ve missed out on life."</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6"><a href="packages.php">
                     <div class="single_destination">
                         <div class="thumb">
-                            <img src="img/destination/gujarat.jpg" alt="">
+
+                            <img src="img/package_dp/adventure.jfif">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">Gujarat <a href="travel_destination.html">  07 Places</a> </p>
+                            <p class="d-flex align-items-center">Adventure  </p>
                             
                         </div>
                     </div>
+                </a>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6"><a href="packages.php">
                     <div class="single_destination">
                         <div class="thumb">
-                            <img src="img/destination/mumbai.jpg" alt="">
+
+                            <img src="img/package_dp/beaches.jpeg" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">Mumbai <a href="travel_destination.html">  03 Places</a> </p>
+                            <p class="d-flex align-items-center">Beaches  </p>
                             
                         </div>
                     </div>
+                </a>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6"><a href="packages.php">
                     <div class="single_destination">
                         <div class="thumb">
-                            <img src="img/destination/delhi.jpg" alt="">
+
+                            <img src="img/package_dp/hill station.jpg" alt="">
                         </div>
                         <div class="content">
-                            <p class="d-flex align-items-center">Delhi<a href="travel_destination.html">  10 Places</a> </p>
+                            <p class="d-flex align-items-center">Hill Station  </p>
                             
                         </div>
                     </div>
+                </a>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb">
-                            <img src="img/destination/sikkim.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Sikkim <a href="travel_destination.html">  02 Places</a> </p>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb">
-                            <img src="img/destination/uttarakhand.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Uttarakhand <a href="travel_destination.html">  02 Places</a> </p>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_destination">
-                        <div class="thumb">
-                            <img src="img/destination/rajasthan.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Rajasthan <a href="travel_destination.html">  05 Places</a> </p>
-                            
-                        </div>
-                    </div>
+                
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="more_place_btn text-center">
+                    <a class="boxed-btn4" href="packages.php">More Places</a>
                 </div>
             </div>
         </div>
     </div>
+    
     <!-- popular_destination_area_end  -->
 
     <div class="popular_places_area">
@@ -302,107 +276,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_place">
-                        <div class="thumb">
-                            <img src="img/place/somnath.jpg" alt="">
-                            <a href="#" class="prise">8500</a>
-                        </div>
-                        <div class="place_info">
-                            <a href="destination_details.html"><h3>Somnath Temple</h3></a>
-                            <p>Gujrat</p>
-                            <div class="rating_days d-flex justify-content-between">
-                                <span class="d-flex justify-content-center align-items-center">
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i>
-                                     <a href="#">(82 Review)</a>
-                                </span>
-                                <div class="days">
-                                    <i class="fa fa-clock-o"></i>
-                                    <a href="#">3 Days</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_place">
-                        <div class="thumb">
-                            <img src="img/place/munnar.jpeg" alt="">
-                            <a href="#" class="prise">25000</a>
-                        </div>
-                        <div class="place_info">
-                            <a href="destination_details.html"><h3>Munnar</h3></a>
-                            <p>Kerala</p>
-                            <div class="rating_days d-flex justify-content-between">
-                                <span class="d-flex justify-content-center align-items-center">
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i>
-                                     <a href="#">(95 Review)</a>
-                                </span>
-                                <div class="days">
-                                    <i class="fa fa-clock-o"></i>
-                                    <a href="#">7 Days</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_place">
-                        <div class="thumb">
-                            <img src="img/place/Darjeeling.jpg" alt="">
-                            <a href="#" class="prise">35000</a>
-                        </div>
-                        <div class="place_info">
-                            <a href="destination_details.html"><h3>Darjeeling</h3></a>
-                            <p>West Bengal</p>
-                            <div class="rating_days d-flex justify-content-between">
-                                <span class="d-flex justify-content-center align-items-center">
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i>
-                                     <a href="#">(65 Review)</a>
-                                </span>
-                                <div class="days">
-                                    <i class="fa fa-clock-o"></i>
-                                    <a href="#">8 Days</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="more_place_btn text-center">
                         <a class="boxed-btn4" href="#">More Places</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="video_area video_bg overlay">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="video_wrap text-center">
-                        <h3>Enjoy Video</h3>
-                        <div class="video_icon">
-                            <a class="popup-video video_play_button" href="https://www.youtube.com/watch?v=f59dDEk57i0">
-                                <i class="fa fa-play"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -450,67 +329,6 @@
     include("view_feedback.php");
     ?>
     <!-- /testimonial_area  -->
-
-
-    <div class="recent_trip_area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section_title text-center mb_70">
-                        <h3>Recent Trips</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_trip">
-                        <div class="thumb">
-                            <img src="img/trip/uttarakhand.jpg" alt="">
-                        </div>
-                        <div class="info">
-                            <div class="date">
-                                <span>Feb 15,2025</span>
-                            </div>
-                            <a href="#">
-                                <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_trip">
-                        <div class="thumb">
-                            <img src="img/trip/rajasthan.jpg" alt="">
-                        </div>
-                        <div class="info">
-                            <div class="date">
-                                <span>Feb 08,2025</span>
-                            </div>
-                            <a href="#">
-                                <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_trip">
-                        <div class="thumb">
-                            <img src="img/trip/gujarat.jpg" alt="">
-                        </div>
-                        <div class="info">
-                            <div class="date">
-                                <span>Feb 02, 2025</span>
-                            </div>
-                            <a href="#">
-                                <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
 
     <?php

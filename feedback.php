@@ -3,7 +3,7 @@ include("config.php");
 session_start();
 if (!isset($_SESSION['loggedin'])) {
     echo "<script>
-        alert('Please log in  for contact us.');
+        alert('Please log in for feedback.');
         window.location.href = 'user/login.php';
     </script>";
     exit();
@@ -54,12 +54,12 @@ if (!isset($_SESSION['loggedin'])) {
     <!-- header-end -->
 
     <!-- bradcam_area  -->
-    <div class="bradcam_area bradcam_bg_4">
+    <div class="bradcam_area bradcam_bg_5">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text text-center">
-                        <h3>contact</h3>
+                        <h3>feedback</h3>
                         <!-- <p>Pixel perfect design with awesome contents</p> -->
                     </div>
                 </div>
@@ -71,18 +71,19 @@ if (!isset($_SESSION['loggedin'])) {
     <!-- ================ contact section start ================= -->
     <?php
     if(($_SERVER["REQUEST_METHOD"] == "POST")) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $subject = $_POST['subject'];
-        if(empty($name) || empty($email) || empty($subject)) {
-            echo "<script>alert('All fields are required!'); window.history.back();</script>";
+        $details = $_POST['message'];
+        $name = $_SESSION["username"];
+        $email = $_SESSION["user_email"];
+
+        if(empty($details)) {
+            echo "<script>alert('Please Give Feedback'); window.history.back();</script>";
             exit(); // Stop execution if validation fails
         }
-        $sql = "INSERT INTO `contact_table` (`contact_id`, `user_name`, `user_email`, `subject`,`contact_date`) VALUES (NULL, '$name', '$email', '$subject', current_timestamp());";
+        $sql = "INSERT INTO `feedback_table` (`feedback_id`, `username`, `user_email`, `feedback_message`,`feedback_date`) VALUES (NULL, '$name', '$email', '$details', current_timestamp());";
                
         $result = mysqli_query($connection,$sql );
         if ($result) {
-            echo "<script>alert('Thank you ! We will reach you soon...');</script>";
+            echo "<script>alert('Thank you for Feedback');</script>";
             
         }
     }
@@ -98,26 +99,15 @@ if (!isset($_SESSION['loggedin'])) {
 
             <div class="row">
                 <div class="col-12">
-                    <h2 class="contact-title">Get in Touch</h2>
+                    <h2 class="contact-title">Give Feedback</h2>
                 </div>
                 <div class="col-lg-8">
-                <form class="form-contact contact_form" action="contact.php" method="post" id="contactForm" novalidate="novalidate" >
+                <form class="form-contact contact_form" action="feedback.php" method="post" id="contactForm" novalidate="novalidate" >
                     <div class="row">
-                    <div class="col-sm-6">
-                    <input type="hidden" name="contact_form" value="1">
-                                <div class="form-group">
-                                    <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name" required>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email" required>
-                                </div>
-                            </div>
-                        
+                    
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control w-100" name="subject" id="contact_message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Feedback'" placeholder="Subject.." required></textarea>
+                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -125,30 +115,6 @@ if (!isset($_SESSION['loggedin'])) {
                         <input type="submit" class="button button-contactForm boxed-btn4">
                     </div>
                 </form>
-                </div>
-                <div class="col-lg-3 offset-lg-1">
-                    <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-home"></i></span>
-                        <div class="media-body">
-                            <h3>L.J University</h3>
-                            <p>Ahmedabad, Gujarat</p>
-                        </div>
-                    </div>
-                    <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-                        <div class="media-body">
-                            <h3>+91 1234567890</h3>
-                            <p>Mon to Sat 9am to 10pm</p>
-                        </div>
-                    </div>
-                    <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-email"></i></span>
-                        <div class="media-body">
-                            <h3>support@itravel.com</h3>
-                            <p>Send us your query anytime!</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

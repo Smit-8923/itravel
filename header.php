@@ -13,8 +13,8 @@
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item"><a class="nav-link active px-3 py-2" href="index.php">Home</a></li>
                             <li class="nav-item"><a class="nav-link px-3 py-2" href="about.php">About</a></li>
-                            <li class="nav-item"><a class="nav-link px-3 py-2" href="packages.php">Packages</a></li>
-                            <li class="nav-item"><a class="nav-link px-3 py-2" href="booking.php">Booking</a></li>
+                            <li class="nav-item"><a class="nav-link px-3 py-2" href="package.php">Packages</a></li>
+                            <li class="nav-item"><a class="nav-link px-3 py-2" href="my_booking.php">Booking</a></li>
                             <li class="nav-item"><a class="nav-link px-3 py-2" href="contact.php">Contact</a></li>
                             <li class="nav-item"><a class="nav-link px-3 py-2" href="feedback.php">Feedback</a></li>
                         </ul>

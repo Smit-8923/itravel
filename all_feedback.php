@@ -127,8 +127,15 @@ $result = mysqli_query($connection, $sql);
 <div class="body">
 
     <div class="containar">
-        <h2 class="text-center mb-4">All Customer Reviews</h2>
-        
+    
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="section_title text-center mb_70">
+                <h3>Available Packages</h3>
+            </div>
+        </div>
+    </div>
+
         <?php while ($row = mysqli_fetch_assoc($result)) { ?>
             <div class="review-card">
                 <p class="review-text">"<?php echo htmlspecialchars($row['feedback_message']); ?>"</p>

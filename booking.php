@@ -1,128 +1,100 @@
 <?php
 include("config.php");
 session_start();
+
+// Ensure package_id is provided
+if (!isset($_GET['pid']) || empty($_GET['pid'])) {
+    echo "<script>alert('Invalid package!'); window.location.href='packages.php';</script>";
+    exit;
+}
+
+$pid = intval($_GET['pid']); // Prevent SQL injection
+
+// Fetch package details
+$sql = "SELECT * FROM package_table WHERE package_id = $pid";
+$result = mysqli_query($connection, $sql);
+$package = mysqli_fetch_assoc($result);
+
+if (!$package) {
+    echo "<script>alert('Package not found!'); window.location.href='packages.php';</script>";
+    exit;
+}
+
+// Process form submission
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_SESSION["username"];
+    $email = mysqli_real_escape_string($connection, $_POST['email']);
+    $phone = mysqli_real_escape_string($connection, $_POST['phone']);
+    $num_persons = intval($_POST['num_persons']);
+    $booking_date = date("Y-m-d");
+
+    // Fetch package price
+    $query = "SELECT package_price FROM package_table WHERE package_id = $pid";
+    $result = mysqli_query($connection, $query);
+    $package = mysqli_fetch_assoc($result);
+    
+    if (!$package) {
+        echo "<script>alert('Package details not found!'); window.location.href='packages.php';</script>";
+        exit;
+    }
+
+    $total_amount = $package['package_price'] * $num_persons;
+
+    // Insert booking into the database
+    $insert_query = "INSERT INTO booking_table (package_id, name, email, phone, num_persons, booking_date, total_amount, payment_status) 
+                     VALUES ('$pid', '$name', '$email', '$phone', '$num_persons', '$booking_date', '$total_amount', 'Pending')";
+
+    if (mysqli_query($connection, $insert_query)) {
+        $booking_id = mysqli_insert_id($connection);
+
+        // Redirect to the payment gateway with booking ID
+        echo "<script>window.location.href='payment_gateway.php?booking_id=$booking_id';</script>";
+        exit;
+    } else {
+        echo "Error: " . mysqli_error($connection);
+        exit;
+    }
+}
 ?>
 
-<!doctype html>
-<html class="no-js" lang="zxx">
-
-
-<!-- Mirrored from themewagon.github.io/travelo/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Feb 2025 11:55:51 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>iTravel - booking</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/faviconn.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <!-- CSS here -->
+    <meta charset="UTF-8">
+    <title>Book Package</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/gijgo.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/slicknav.css">
-    <link rel="stylesheet" href="../../ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
-
     <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
-
 <body>
 
-    <?php
-    include("header.php");
-    ?>
+<?php include("header.php"); ?>
 
-    <!-- header-end -->
+<div class="container">
+    <h2 class="text-center mt-4">Confirm Booking</h2>
 
-    <!-- bradcam_area  -->
-    <div class="bradcam_area bradcam_bg_2">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="bradcam_text text-center">
-                        <h3>Booking</h3>
-                        
-                    </div>
-                </div>
-            </div>
+    <form action="" method="post">
+        
+        <div class="mb-3">
+            <label>Email:</label>
+            <input type="email" name="email" class="form-control" required>
         </div>
-    </div>
-    <!--/ bradcam_area  -->
 
-    
-
-    <?php
-    include("footer.php");
-    ?>
-
-    <!-- Modal -->
-    <div class="modal fade custom_search_pop" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="serch_form">
-                    <input type="text" placeholder="Search">
-                    <button type="submit">search</button>
-                </div>
-            </div>
+        <div class="mb-3">
+            <label>Phone:</label>
+            <input type="text" name="phone" class="form-control" required>
         </div>
-    </div>
 
-    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/ajax-form.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/scrollIt.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/nice-select.min.js"></script>
-    <script src="js/jquery.slicknav.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/gijgo.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="mb-3">
+            <label>Number of Persons:</label>
+            <input type="number" name="num_persons" class="form-control" required min="1">
+        </div>
 
+        <button type="submit" class="btn btn-success">Confirm Booking</button>
+    </form>
+</div>
 
-    <!--contact js-->
-    <script src="js/contact.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
-    <script src="js/jquery.form.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/mail-script.js"></script>
+<?php include("footer.php"); ?>
 
-
-    <script src="js/main.js"></script>
-    <script>
-        $('#datepicker').datepicker({
-            iconsLibrary: 'fontawesome',
-            icons: {
-                rightIcon: '<span class="fa fa-caret-down"></span>'
-            }
-        });
-    </script>
 </body>
-
-
-<!-- Mirrored from themewagon.github.io/travelo/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Feb 2025 11:55:51 GMT -->
-
 </html>
+ 

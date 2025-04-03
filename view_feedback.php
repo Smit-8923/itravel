@@ -6,15 +6,16 @@ $sql = "SELECT username, feedback_message FROM feedback_table ORDER BY feedback_
 $result = mysqli_query($connection, $sql);
 ?>
 
-<div class="container">
-    <div class="section_title text-center mb-5">
-        <h2>Customer Reviews</h2>
-        <p>See what our happy customers are saying</p>
-    </div>
+<div class="container mt-5">
+    
 </div>
 
 <div class="testimonial_area">
     <div class="container">
+    <div class="section_title text-center mb-5">
+        <h2>Customer Reviews</h2>
+        <p>See what our happy customers are saying</p>
+    </div>
         <div class="row">
             <div class="col-xl-12">
                 <div class="testmonial_active owl-carousel">

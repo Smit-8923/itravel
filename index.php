@@ -127,59 +127,41 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="section_title text-center mb_70">
-                        <h3>Popular Packages</h3>
+                        <h3>Popular Category</h3>
                         <p>"To me, India’s always represented ‘everything’; it represents ‘all.’ Everything is here. You can stay here forever, and you’ll never feel like you’ve missed out on life."</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6"><a href="packages.php">
-                    <div class="single_destination">
-                        <div class="thumb">
+            <?php
+            $sql = "SELECT * FROM category_table limit 3";
+            $result = mysqli_query($connection, $sql);
 
-                            <img src="img/package_dp/adventure.jfif">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Adventure  </p>
-                            
-                        </div>
-                    </div>
-                </a>
-                </div>
-                <div class="col-lg-4 col-md-6"><a href="packages.php">
-                    <div class="single_destination">
-                        <div class="thumb">
-
-                            <img src="img/package_dp/beaches.jpeg" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Beaches  </p>
-                            
-                        </div>
-                    </div>
-                </a>
-                </div>
-                <div class="col-lg-4 col-md-6"><a href="packages.php">
-                    <div class="single_destination">
-                        <div class="thumb">
-
-                            <img src="img/package_dp/hill station.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <p class="d-flex align-items-center">Hill Station  </p>
-                            
-                        </div>
-                    </div>
-                </a>
-                </div>
-                
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="col-lg-4 col-md-6"> 
+                            <a href="package.php?cid=' . $row["category_id"] . '">
+                                <div class="single_destination">
+                                    <div class="thumb">
+                                        <img src="img/package_dp/' . htmlspecialchars($row['category_name']) . '.jpg" 
+                                             alt="' . htmlspecialchars($row['category_name']) . '">
+                                    </div>
+                                    <div class="content">
+                                        <p class="d-flex align-items-center">' . htmlspecialchars($row['category_name']) . '</p>
+                                    </div>
+                                </div>
+                            </a>
+                          </div>';
+                }
+            } else {
+                echo "<p>No categories found.</p>";
+            }
+            ?>
             </div>
-            
-        </div>
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-lg-12">
                 <div class="more_place_btn text-center">
-                    <a class="boxed-btn4" href="packages.php">More Places</a>
+                    <a class="boxed-btn4" href="category.php">More category</a>
                 </div>
             </div>
         </div>
@@ -187,143 +169,51 @@
     
     <!-- popular_destination_area_end  -->
 
-    <div class="popular_places_area">
+    <div class="popular_destination_area">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="section_title text-center mb_70">
-                        <h3>Popular Places</h3>
-                        <p>India is the heart. It's the heart that keeps us together</p>
+                        <h3>Popular package</h3>
+                        <p>"To me, India’s always represented ‘everything’; it represents ‘all.’ Everything is here. You can stay here forever, and you’ll never feel like you’ve missed out on life."</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_place">
-                        <div class="thumb">
-                            <img src="img/place/taj.jpeg" alt="">
-                            <a href="#" class="prise">25000</a>
-                        </div>
-                        <div class="place_info">
-                            <a href="destination_details.html"><h3>Taj Mahal </h3></a>
-                            <p>Uttar Pradesh</p>
-                            <div class="rating_days d-flex justify-content-between">
-                                <span class="d-flex justify-content-center align-items-center">
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i>
-                                     <a href="#">(200 Review)</a>
-                                </span>
-                                <div class="days">
-                                    <i class="fa fa-clock-o"></i>
-                                    <a href="#">3 Days</a>
+            <?php
+            $sql = "SELECT * FROM package_table limit 3";
+            $result = mysqli_query($connection, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="col-lg-4 col-md-6"> 
+                            <a href="package_details.php?pid=' . $row["package_id"] . '">
+                                <div class="single_destination">
+                                    <div class="thumb">
+                                        <img src="img/package_dp/adventure.jpg"
+                                             alt="' . htmlspecialchars($row['package_name']) . '">
+                                    </div>
+                                    <div class="content">
+                                        <p class="d-flex align-items-center">' . htmlspecialchars($row['package_name']) . '</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_place">
-                        <div class="thumb">
-                            <img src="img/place/gold.jpg" alt="">
-                            <a href="#" class="prise">18500</a>
-                        </div>
-                        <div class="place_info">
-                            <a href="destination_details.html"><h3>Golden Temple </h3></a>
-                            <p>Punjab</p>
-                            <div class="rating_days d-flex justify-content-between">
-                                <span class="d-flex justify-content-center align-items-center">
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i>
-                                     <a href="#">(174 Review)</a>
-                                </span>
-                                <div class="days">
-                                    <i class="fa fa-clock-o"></i>
-                                    <a href="#">5 Days</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_place">
-                        <div class="thumb">
-                            <img src="img/place/ladakh.jpg" alt="">
-                            <a href="#" class="prise">30000</a>
-                        </div>
-                        <div class="place_info">
-                            <a href="destination_details.html"><h3>Ladakh</h3></a>
-                            <p>Jammu & Kashmir</p>
-                            <div class="rating_days d-flex justify-content-between">
-                                <span class="d-flex justify-content-center align-items-center">
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i>
-                                     <a href="#">(132 Review)</a>
-                                </span>
-                                <div class="days">
-                                    <i class="fa fa-clock-o"></i>
-                                    <a href="#">5 Days</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               
+                            </a>
+                          </div>';
+                }
+            } else {
+                echo "<p>No categories found.</p>";
+            }
+            ?>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="more_place_btn text-center">
-                        <a class="boxed-btn4" href="#">More Places</a>
-                    </div>
+        <div class="row mt-3">
+            <div class="col-lg-12">
+                <div class="more_place_btn text-center">
+                    <a class="boxed-btn4" href="package.php">More package</a>
                 </div>
             </div>
         </div>
     </div>
-
-
-    <div class="travel_variation_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_travel text-center">
-                        <div class="icon">
-                            <img src="img/svg_icon/1.svg" alt="">
-                        </div>
-                        <h3>Comfortable Journey</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_travel text-center">
-                        <div class="icon">
-                            <img src="img/svg_icon/2.svg" alt="">
-                        </div>
-                        <h3>Luxuries Hotel</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_travel text-center">
-                        <div class="icon">
-                            <img src="img/svg_icon/3.svg" alt="">
-                        </div>
-                        <h3>Travel Guide</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
+    
     <!-- testimonial_area  -->
     <?php
     include("view_feedback.php");

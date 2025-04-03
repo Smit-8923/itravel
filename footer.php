@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer mb-0">
     <div class="footer_top">
         <div class="container">
             <div class="row">
@@ -28,7 +28,7 @@
                         <ul class="links">
                             <li><a href="index.php">Home</a></li>
                             <li><a href="about.php">About</a></li>
-                            <li><a href="packages.php">Packages</a></li>
+                            <li><a href="package.php">Packages</a></li>
                             <li><a href="contact.php">Contact</a></li>
                         </ul>
                     </div>

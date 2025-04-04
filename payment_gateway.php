@@ -27,9 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $payment_method = mysqli_real_escape_string($connection, $_POST['payment_method']);
     
     // Update booking with payment method & status
-    $update_query = "UPDATE booking_table SET payment_method='$payment_method', payment_status ='Paid' WHERE booking_id=$booking_id";
-
-    if (mysqli_query($connection, $update_query)) {
+    $update_query = "UPDATE booking_table SET payment_method='$payment_method', payment_status='Completed' WHERE booking_id=$booking_id";
+    $result = mysqli_query($connection, $update_query);
+    $update_payment = "UPDATE payment_table SET payment_method='$payment_method' WHERE booking_id=$booking_id";
+    $q = mysqli_query($connection, $update_payment);
+    if ($result) {
         echo "<script>alert('Payment Successful!'); window.location.href='payment_process.php?booking_id=$booking_id';</script>";
         exit;
     } else {

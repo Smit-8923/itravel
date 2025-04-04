@@ -70,7 +70,7 @@ if (!isset($_SESSION['loggedin'])) {
 
     <!-- ================ contact section start ================= -->
     <?php
-    if(($_SERVER["REQUEST_METHOD"] == "POST")) {
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
         $details = $_POST['message'];
         $name = $_SESSION["username"];
         $email = $_SESSION["user_email"];

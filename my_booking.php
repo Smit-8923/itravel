@@ -13,21 +13,21 @@ $user_name = $_SESSION['username'];
 // Handle Booking Cancellation
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cancel_booking'])) {
     $booking_id = intval($_POST['booking_id']);
-    $delete_query = "DELETE FROM booking_table WHERE booking_id = $booking_id";
+    $update_query = "UPDATE booking_table SET status = 'Cancelled' WHERE booking_id = $booking_id";
     
-    if (mysqli_query($connection, $delete_query)) {
-        echo "<script>alert('Booking canceled successfully!'); window.location.href='my_booking.php';</script>";
+    if (mysqli_query($connection, $update_query)) {
+        echo "<script>alert('Booking cancelled successfully!'); window.location.href='my_booking.php';</script>";
         exit;
     } else {
-        echo "<script>alert('Error canceling booking!');</script>";
+        echo "<script>alert('Error cancelling booking!');</script>";
     }
 }
 
-// Fetch user's bookings with package name
+// Fetch user's bookings with package name, excluding cancelled bookings
 $sql = "SELECT b.*, p.package_name 
         FROM booking_table b 
         JOIN package_table p ON b.package_id = p.package_id 
-        WHERE b.name = '$user_name' 
+        WHERE b.name = '$user_name' AND b.status != 'Cancelled'
         ORDER BY b.booking_date DESC";
 
 $result = mysqli_query($connection, $sql);
@@ -57,6 +57,7 @@ $result = mysqli_query($connection, $sql);
                     <th>Total Amount</th>
                     <th>Booking Date</th>
                     <th>Payment Status</th>
+                    <th>Booking Status</th>
                     <th>Action</th> <!-- Cancel Button Column -->
                 </tr>
             </thead>
@@ -68,10 +69,11 @@ $result = mysqli_query($connection, $sql);
                         <td>Rs. <?php echo number_format($row['total_amount']); ?></td>
                         <td><?php echo $row['booking_date']; ?></td>
                         <td><?php echo htmlspecialchars($row['payment_status']); ?></td>
+                        <td><?php echo htmlspecialchars($row['status']); ?></td>
                         <td>
                             <form method="POST">
                                 <input type="hidden" name="booking_id" value="<?php echo $row['booking_id']; ?>">
-                                <button type="submit" name="cancel_booking" class="btn btn-danger btn-sm">Cancel</button>
+                                <button type="submit" name="cancel_booking" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to cancel this booking?')">Cancel</button>
                             </form>
                         </td>
                     </tr>
@@ -79,7 +81,7 @@ $result = mysqli_query($connection, $sql);
             </tbody>
         </table>
     <?php } else { ?>
-        <p class="text-center mt-4" style="color: red;">You have no bookings yet!</p>
+        <p class="text-center m-4" style="color: red; font-size: 20px;">You have no bookings yet!</p>
     <?php } ?>
 </div>
 

@@ -21,9 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $login = true;
             session_start();
             $_SESSION['loggedin'] = true;
+            $_SESSION['admin_id'] = $row['admin_id'];
             $_SESSION['admin_email'] = $email;
             $_SESSION['admin_name'] = $row['admin_name'];
-            
+            $_SESSION['admin_role'] = $row['role'];
+           
             header("Location: admin_dashboard.php");
             exit(); // Prevent further execution
         } else {

@@ -47,7 +47,7 @@ if (!$package) {
     </div>
 
     <div style="display: flex; flex-direction: column; align-items: center; border: 1px solid #ddd; padding: 20px; border-radius: 10px; max-width: 800px; margin:  20px auto;">
-        <img src="img/destination/2.png" alt="Tour Image" style="width: 100%; max-width: 600px; height: auto; border-radius: 10px;">
+        <img src="admin/uploads/?php echo htmlspecialchars($row['package_image']); ?>.jpg" alt="Tour Image" style="width: 100%; max-width: 600px; height: auto; border-radius: 10px;">
         
         <h2 style="margin-top: 20px; color: #333;"><?php echo htmlspecialchars($package['package_name']); ?></h2>
         

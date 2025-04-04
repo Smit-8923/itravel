@@ -23,6 +23,8 @@ if (!$package) {
 // Process form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_SESSION["username"];
+    $user_id = $_SESSION["user_id"];
+    
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $phone = mysqli_real_escape_string($connection, $_POST['phone']);
     $num_persons = intval($_POST['num_persons']);
@@ -44,9 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $insert_query = "INSERT INTO booking_table (package_id, name, email, phone, num_persons, booking_date, total_amount, payment_status) 
                      VALUES ('$pid', '$name', '$email', '$phone', '$num_persons', '$booking_date', '$total_amount', 'Pending')";
 
+
     if (mysqli_query($connection, $insert_query)) {
         $booking_id = mysqli_insert_id($connection);
-
+        $query ="INSERT INTO payment_table (booking_id, user_id, amount) VALUES ('$booking_id','$user_id','$total_amount')";
+        mysqli_query($connection,$query);
         // Redirect to the payment gateway with booking ID
         echo "<script>window.location.href='payment_gateway.php?booking_id=$booking_id';</script>";
         exit;

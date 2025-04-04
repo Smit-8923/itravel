@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             session_start();
             $_SESSION['loggedin'] = true;
             $_SESSION['user_email'] = $email;
+            $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['username'] = $row['user_name'];
             
 

@@ -28,7 +28,7 @@
                 $request = mysqli_query($connection, $sql);
                 if($request){
                     $showAlert = true;
-                    header("location: admin_login.php");
+                    header("location: index.php");
                 }
             }
             else{
@@ -84,7 +84,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         <div class="al-register">
-            <span>Already Member?</span><a href="admin_login.php">Click to Login</a>
+            <span>Already Member?</span><a href="index.php">Click to Login</a>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>

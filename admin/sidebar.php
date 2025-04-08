@@ -43,7 +43,7 @@
         <i class="bi bi-credit-card me-2"></i> <span>Payments</span>
     </a>
 
-    <div class="dropdown">
+    <!-- <div class="dropdown">
         <a href="javascript:void(0);" class="d-flex align-items-center dropdown-toggle" data-bs-toggle="collapse" data-bs-target="#hotelMenu">
             <i class="bi bi-building me-2"></i> <span>Manage Hotels</span>
         </a>
@@ -51,7 +51,7 @@
             <a href="add_hotel.php" class="d-flex align-items-center"><i class="bi bi-plus-circle me-2"></i> <span>Add Hotel</span></a>
             <a href="manage_hotels.php" class="d-flex align-items-center"><i class="bi bi-list-check me-2"></i> <span>Manage Hotels</span></a>
         </div>
-    </div>
+    </div> -->
 
     <a href="feedback_list.php" class="d-flex align-items-center">
         <i class="bi bi-chat-left-text me-2"></i> <span>User Feedback</span>

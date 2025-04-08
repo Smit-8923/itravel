@@ -43,7 +43,7 @@ session_start();
         while ($row = mysqli_fetch_assoc($result)) {
     ?>    
     <div style="display: flex; align-items: center; border: 1px solid #ddd; padding: 5px; border-radius: 5px; max-width: 100%; margin: 10px; height: 120px;">
-    <img src="admin/uploads/?php echo htmlspecialchars($row['package_image']); ?>" 
+    <img src="admin/<?php echo htmlspecialchars($row['package_image']); ?>" 
      alt="Tour Image" style="width: 150px; height: 100px; border-radius: 8px; margin-right: 15px;">
 <div style="flex-grow: 1;">
             <h3 style="margin: 0;"><?php echo htmlspecialchars($row['package_name']); ?></h3>

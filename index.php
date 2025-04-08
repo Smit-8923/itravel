@@ -56,8 +56,8 @@
                                 <p>"Goa, the land of fun and friends"</p>
 
                                 <p>"Goa is known for its famous beaches, culture, climate, and historical places"</p>
-                                <p>"Goa is known for its famous beaches, culture, climate, and historical places"</p>
-                                <a href="#" class="boxed-btn3">Explore Now</a>
+                                <!-- <p>"Goa is known for its famous beaches, culture, climate, and historical places"</p> -->
+                                <!-- <a href="#" class="boxed-btn3">Explore Now</a> -->
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                             <div class="slider_text text-center">
                                 <h3>Rann of Kutch</h3>
                                 <p>"Walking on the moon…or close enough"</p>
-                                <a href="#" class="boxed-btn3">Explore Now</a>
+                                <!-- <a href="#" class="boxed-btn3">Explore Now</a> -->
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                             <div class="slider_text text-center">
                                 <h3>Kashmir</h3>
                                 <p>Pixel perfect design with awesome contents</p>
-                                <a href="#" class="boxed-btn3">Explore Now</a>
+                                <!-- <a href="#" class="boxed-btn3">Explore Now</a> -->
                             </div>
                         </div>
                     </div>
@@ -105,15 +105,15 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="search_wrap">
-                        <form class="search_form" action="#">
-                            <div class="input_field">
-                                <input type="text" placeholder="Where to go?">
-                            </div>
-                            
-                            <div class="search_btn">
-                                <button class="boxed-btn4 " type="submit" >Search</button>
-                            </div>
-                        </form>
+                        <form class="search_form" action="package.php" method="get">
+    <div class="input_field">
+        <input type="text" name="search" placeholder="Search package">
+    </div>
+    <div class="search_btn">
+        <button class="boxed-btn4" type="submit">Search</button>
+    </div>
+</form>
+
                     </div>
                 </div>
             </div>

@@ -4,8 +4,11 @@ session_start();
 
 // Check if user is logged in
 if (!isset($_SESSION['loggedin'])) {
-    echo "<script>alert('Please log in to view your bookings!'); window.location.href='user/login.php';</script>";
-    exit;
+    echo "<script>
+        alert('Please log in for show your booking.');
+        window.location.href = 'user/login.php';
+    </script>";
+    exit();
 }
 
 $user_name = $_SESSION['username'];

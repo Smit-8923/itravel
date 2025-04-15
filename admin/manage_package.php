@@ -1,19 +1,52 @@
 <?php
 include("../config.php");
 session_start();
+
 if (isset($_GET['delete_id'])) {
-    $delete_id = $_GET['delete_id'];
-    $delete_query = "DELETE FROM package_table WHERE package_id = '$delete_id'";
-    $result = mysqli_query($connection, $delete_query);
-    if ($result) {
+    $delete_id = intval($_GET['delete_id']);
+
+    // 1. Fetch image path(s) from the image_table
+    $image_query = mysqli_query($connection, "SELECT image_path FROM package_images WHERE package_id = $delete_id");
+
+    while ($img = mysqli_fetch_assoc($image_query)) {
+        $image_path =  $img['image_path'];
+        if (file_exists($image_path)) {
+            unlink($image_path); // Delete the image file from folder
+        }
+    }
+
+    // 2. Delete images from image_table
+    mysqli_query($connection, "DELETE FROM package_images WHERE package_id = $delete_id");
+
+    // 3. Delete departure dates
+    mysqli_query($connection, "DELETE FROM departure_dates WHERE package_id = $delete_id");
+
+    // 4. Delete package record
+    $delete_query = "DELETE FROM package_table WHERE package_id = $delete_id";
+    $delete_schedule = "DELETE FROM schedule_table WHERE package_id = $delete_id";
+    if (mysqli_query($connection, $delete_query)) {
         echo "<script>alert('Package deleted successfully!'); window.location.href='manage_package.php';</script>";
     } else {
         echo "<script>alert('Error deleting package!');</script>";
     }
 }
 
-$package_query = "SELECT p.*, c.category_name FROM package_table p 
-                  JOIN category_table c ON p.category_id = c.category_id";
+
+$package_query = "SELECT 
+    p.*, 
+    c.category_name, 
+    MIN(d.departure_date) AS departure_date
+FROM 
+    package_table p
+JOIN 
+    category_table c ON p.category_id = c.category_id
+LEFT JOIN 
+    departure_dates d ON p.package_id = d.package_id
+GROUP BY 
+    p.package_id
+ORDER BY 
+    p.package_id DESC;
+";
 $package_result = mysqli_query($connection, $package_query);
 ?>
 
@@ -51,7 +84,6 @@ $package_result = mysqli_query($connection, $package_query);
             .content { margin-left: 80px; }
             .sidebar a span { display: none; }
         }
-        /* Table Styling */
         .table-container {
             width: 1200px;
             margin: auto;
@@ -73,7 +105,6 @@ $package_result = mysqli_query($connection, $package_query);
             text-align: center;
             padding: 10px;
             vertical-align: middle;
-            
         }
         .details-column {
             max-width: 250px;
@@ -89,8 +120,6 @@ $package_result = mysqli_query($connection, $package_query);
         }
         .status-active { color: green; font-weight: bold; }
         .status-inactive { color: red; font-weight: bold; }
-        
-        
     </style>
 </head>
 <body>
@@ -109,8 +138,9 @@ $package_result = mysqli_query($connection, $package_query);
                             <th>Package Name</th>
                             <th class="details-column">Package Details</th>
                             <th>Category</th>
-                            <th>Price (₹)</th>
-                            <th>Departure</th>
+                            <th>Adult Price (₹)</th>
+                            <th>Child Price (₹)</th>
+                            <th>Departure Date</th>
                             <th>Days</th>
                             <th>Status</th>
                             <th>Actions</th>
@@ -125,11 +155,11 @@ $package_result = mysqli_query($connection, $package_query);
                                 <td>{$package['package_name']}</td>
                                 <td class='details-column'>{$package['package_details']}</td>
                                 <td>{$package['category_name']}</td>
-                                <td>₹{$package['package_price']}</td>
-                                <td>{$package['depart_date']}</td>
-                                <td>{$package['days']} Days</td>
-                                <td class='".($package['status'] == 1 ? 'status-active' : 'status-inactive')."'>"
-                                    .($package['status'] == 1 ? "Active" : "Inactive")."</td>
+                                <td>₹{$package['adult_price']}</td>
+                                <td>₹{$package['child_price']}</td>
+                                <td>{$package['departure_date']}</td>
+                                <td>{$package['days']}</td>
+                                <td>{$package['status']}</td>
                                 <td class='action-btns'>
                                     <a href='edit_package.php?id={$package['package_id']}' class='btn btn-sm btn-warning'>
                                         <i class='bi bi-pencil-square'></i>

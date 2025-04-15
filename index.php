@@ -35,7 +35,7 @@
 </head>
 
 <body>
-
+<div class="page-wrapper d-flex flex-column min-vh-100">
 
 <?php
    include("header.php") ;
@@ -43,7 +43,7 @@
     
     
     <!-- header-end -->
-
+    <main class="flex-fill">
     <!-- slider_area_start -->
     <div class="slider_area">
         <div class="slider_active owl-carousel">
@@ -154,7 +154,8 @@
                           </div>';
                 }
             } else {
-                echo "<p>No categories found.</p>";
+                echo "<div class='text-center'>
+                <p>No categories found.</p></div>";
             }
             ?>
             </div>
@@ -180,30 +181,41 @@
                 </div>
             </div>
             <div class="row">
-            <?php
-            $sql = "SELECT * FROM package_table limit 3";
-            $result = mysqli_query($connection, $sql);
+          <?php
+$sql = "SELECT * FROM package_table LIMIT 3";
+$result = mysqli_query($connection, $sql);
 
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<div class="col-lg-4 col-md-6"> 
-                            <a href="package_details.php?pid=' . $row["package_id"] . '">
-                                <div class="single_destination">
-                                    <div class="thumb">
-                                        <img src="img/package_dp/adventure.jpg"
-                                             alt="' . htmlspecialchars($row['package_name']) . '">
-                                    </div>
-                                    <div class="content">
-                                        <p class="d-flex align-items-center">' . htmlspecialchars($row['package_name']) . '</p>
-                                    </div>
-                                </div>
-                            </a>
-                          </div>';
-                }
-            } else {
-                echo "<p>No categories found.</p>";
-            }
-            ?>
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        // Fetch the first image for the current package from package_images
+        $pid = $row['package_id'];
+        $img_sql = "SELECT image_path FROM package_images WHERE package_id = $pid LIMIT 1";
+        $img_result = mysqli_query($connection, $img_sql);
+        $img_row = mysqli_fetch_assoc($img_result);
+        $image = $img_row['image_path'] ; // fallback image
+
+        echo '<div class="col-lg-4 col-md-6"> 
+                <a href="package_details.php?pid=' . $row["package_id"] . '">
+                    <div class="single_destination">
+                        <div class="thumb">
+                            <img src="admin/' . htmlspecialchars($image) . '"
+                                 alt="' . htmlspecialchars($row['package_name']) . '" 
+                                 style="width: 350px; height: 233px; border-radius: 8px; margin-right: 15px;">
+                        </div>
+                        <div class="content">
+                            <p class="d-flex align-items-center">' . htmlspecialchars($row['package_name']) . '</p>
+                        </div>
+                    </div>
+                </a>
+              </div>';
+    }
+} else {
+    echo "<div class='section_title text-center mb_70'>
+            <h4>No packages Found</h4>
+          </div>";
+}
+?>
+
             </div>
         <div class="row mt-3">
             <div class="col-lg-12">
@@ -220,11 +232,11 @@
     ?>
     <!-- /testimonial_area  -->
 
-
+</main>
     <?php
    include("footer.php") ;
     ?>
-
+</div>
 
   <!-- Modal -->
   <div class="modal fade custom_search_pop" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

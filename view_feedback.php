@@ -19,20 +19,20 @@ $result = mysqli_query($connection, $sql);
         <div class="row">
             <div class="col-xl-12">
                 <div class="testmonial_active owl-carousel">
-                    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-                        <div class="single_carousel">
+                    <?php while ($row = mysqli_fetch_assoc($result)) { 
+                        echo '<div class="single_carousel">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <div class="single_testmonial text-center">
-                                        <p>"<?php echo htmlspecialchars($row['feedback_message']); ?>"</p>
+                                        <p>"'.htmlspecialchars($row["feedback_message"]).'"</p>
                                         <div class="testmonial_author">
-                                            <h3>- <?php echo htmlspecialchars($row['username']); ?></h3>
+                                            <h3>-'.htmlspecialchars($row["username"]).'</h3>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php } ?>
+                        </div>';
+                     } ?>
                 </div>
 
                 <div class="text-center mt-5">

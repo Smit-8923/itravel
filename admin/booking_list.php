@@ -7,7 +7,7 @@ if (isset($_GET['update_id']) && isset($_GET['status'])) {
     $update_id = $_GET['update_id'];
     $new_status = $_GET['status'];
 
-    $update_query = "UPDATE booking_table SET status = '$new_status' WHERE booking_id = '$update_id'";
+    $update_query = "UPDATE booking_table SET booking_status = '$new_status' WHERE booking_id = '$update_id'";
     if (mysqli_query($connection, $update_query)) {
         echo "<script>alert('Booking status updated to $new_status!'); window.location.href='booking_list.php';</script>";
     } else {
@@ -18,6 +18,9 @@ if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
     $delete_query = "DELETE FROM booking_table WHERE package_id = '$delete_id'";
     $result = mysqli_query($connection, $delete_query);
+    $p_delete = "DELETE FROM payment_table WHERE package_id = '$delete_id'";
+    $resut = mysqli_query($connection, $p_delete);
+
     if ($result) {
         echo "<script>alert('booking deleted successfully!'); window.location.href='booking_list.php';</script>";
     } else {
@@ -26,9 +29,9 @@ if (isset($_GET['delete_id'])) {
 }
 
 // Fetch bookings
-$booking_query = "SELECT b.*, p.package_name, p.package_price, u.user_name FROM booking_table b
-                  JOIN package_table p ON b.package_id = p.package_id
-                  JOIN user_table u ON b.name = u.user_name";
+$booking_query = "SELECT b.*, p.*
+        FROM booking_table b 
+        JOIN package_table p ON b.package_id = p.package_id";
 $booking_result = mysqli_query($connection, $booking_query);
 ?>
 
@@ -93,6 +96,9 @@ $booking_result = mysqli_query($connection, $booking_query);
                         <th>Username</th>
                         <th>Package Name</th>
                         <th>Booking Date</th>
+                        <th>departure Date</th>
+                        <th>No of Adult</th>
+                        <th>No of Children</th>
                         <th>Amount (₹)</th>
                         <th>Payment Status</th>
                         <th>Booking Status</th>
@@ -122,12 +128,15 @@ $booking_result = mysqli_query($connection, $booking_query);
                         $status_class = "status-" . strtolower($booking['status']);
                         echo "<tr>
                             <td>{$i}</td>
-                            <td>{$booking['user_name']}</td>
+                            <td>{$booking['name']}</td>
                             <td>{$booking['package_name']}</td>
                             <td>{$booking['booking_date']}</td>
-                            <td>₹{$booking['package_price']}</td>
+                            <td>{$booking['departure_date']}</td>
+                            <td>{$booking['num_adults']}</td>
+                            <td>{$booking['num_children']}</td>
+                            <td>₹{$booking['grand_total']}</td>
                             <td>{$booking['payment_status']}</td>
-                            <td class='{$status_class}'>" . ($booking['status'] ? $booking['status'] : 'Pending') . "</td>";
+                            <td class='{$status_class}'>" . ($booking['booking_status'] ? $booking['booking_status'] : 'Pending') . "</td>";
                         
                         if ($booking['status']) {
                             echo "<td class='action-btns'>

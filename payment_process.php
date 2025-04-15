@@ -25,7 +25,9 @@ if (!$booking) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Payment Success</title>
+    <title>iTravel - Payment Success</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/faviconn.png">
+   
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -35,11 +37,11 @@ if (!$booking) {
 
 <div class="container text-center">
     <h2 class="mt-4">Payment Successful!</h2>
-    <p>Your payment for <strong><?php echo $booking['total_amount']; ?></strong> has been completed.</p>
+    <p>Your payment for <strong><?php echo $booking['grand_total']; ?></strong> has been completed.</p>
     <p>Payment Method: <strong><?php echo htmlspecialchars($booking['payment_method']); ?></strong></p>
     <p>Thank you for booking with us!</p>
 
-    <a href="index.php" class="btn btn-success">Go to Homepage</a>
+    <a href="index.php" class="btn btn-success m-5">Go to Homepage</a>
 </div>
 
 <?php include("footer.php"); ?>

@@ -11,7 +11,7 @@ $result = mysqli_query($connection, $sql);
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>iTravel</title>
+    <title>iTravel - feedback</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -130,20 +130,26 @@ $result = mysqli_query($connection, $sql);
     
     <div class="row justify-content-center">
         <div class="col-lg-6">
-            <div class="section_title text-center mb_70">
-                <h3>Available Packages</h3>
+            <div class="section_title mb_70">
+                <h3>Customer reviews</h3>
             </div>
         </div>
     </div>
 
-        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-            <div class="review-card">
-                <p class="review-text">"<?php echo htmlspecialchars($row['feedback_message']); ?>"</p>
-                <p class="review-author">- <?php echo htmlspecialchars($row['username']); ?></p>
-            </div>
-            <?php } ?>
-            
-            <div class="text-center m-4">
+    
+        <?php 
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo '<div class="review-card">';
+        echo '<p class="review-text">"' . htmlspecialchars($row['feedback_message']) . '"</p>';
+        echo '<p class="review-author">- ' . htmlspecialchars($row['username']) . '</p>';
+        echo '</div>';
+    }
+} else {
+    echo '<p class="text-center m-4" style="color: red; font-size: 20px;">No feedback has been given yet!</p>';
+}
+?>          
+     <div class="text-center m-4">
                 <a href="index.php" class="btn btn-secondary">Back to Home</a>
             </div>
         </div>

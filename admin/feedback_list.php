@@ -16,6 +16,8 @@ if (isset($_GET['delete_id'])) {
     }
 }
 
+
+
 // Fetch Feedback List
 $feedback_query = "SELECT * FROM feedback_table ORDER BY feedback_date DESC";
 $feedback_result = mysqli_query($connection, $feedback_query);
@@ -81,29 +83,32 @@ $feedback_result = mysqli_query($connection, $feedback_query);
                     <th>Email</th>
                     <th>Feedback</th>
                     <th>Date Submitted</th>
+                    <th>Reply</th>
+
                     <th>Action</th> <!-- Delete Feedback -->
                 </tr>
             </thead>
             <tbody>
-                <?php
-                $i = 1;
-                while ($feedback = mysqli_fetch_assoc($feedback_result)) {
-                    echo "<tr>
-                        <td>{$i}</td>
-                        <td>{$feedback['username']}</td>
-                        <td>{$feedback['user_email']}</td>
-                        <td>{$feedback['feedback_message']}</td>
-                        <td>{$feedback['feedback_date']}</td>
-                        <td>
-                            <a href='feedback_list.php?delete_id={$feedback['feedback_id']}' class='btn btn-sm btn-danger' onclick='return confirm('Are you sure you want to delete this feedback?')'>
-                                Delete
-                            </a>
-                        </td>
-                    </tr>";
-                    $i++;
-                }
-                ?>
-            </tbody>
+    <?php
+    $i = 1;
+    while ($feedback = mysqli_fetch_assoc($feedback_result)) {
+        echo "<tr>
+            <td>{$i}</td>
+            <td>{$feedback['username']}</td>
+            <td>{$feedback['user_email']}</td>
+            <td>{$feedback['feedback_message']}</td>
+            <td>{$feedback['feedback_date']}</td>
+            <td>" . (!empty($feedback['reply_message']) ? $feedback['reply_message'] : '<span class="text-muted">No reply yet</span>') . "</td>
+            <td>
+                <a href='reply_feedback.php?id={$feedback['feedback_id']}' class='btn btn-sm btn-primary'>Reply</a>
+                <a href='feedback_list.php?delete_id={$feedback['feedback_id']}' class='btn btn-sm btn-danger' onclick='return confirm(\"Are you sure you want to delete this feedback?\")'>Delete</a>
+            </td>
+        </tr>";
+        $i++;
+    }
+    ?>
+</tbody>
+
         </table>
     </div>
 </div>

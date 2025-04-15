@@ -8,6 +8,17 @@ if (!isset($_SESSION['loggedin'])) {
     </script>";
     exit();
 }
+if (isset($_GET['delete_id'])) {
+    $delete_id = intval($_GET['delete_id']);
+    
+    $delete_query = "DELETE FROM feedback_table WHERE feedback_id = $delete_id";
+    if (mysqli_query($connection, $delete_query)) {
+        echo "<script>alert('Feedback deleted successfully!'); window.location.href='feedback.php';</script>";
+    } else {
+        echo "<script>alert('Error deleting feedback!');</script>";
+    }
+}
+
 ?>
 
 <!doctype html>
@@ -21,7 +32,7 @@ if (!isset($_SESSION['loggedin'])) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>iTravel</title>
+    <title>iTravel - feedback</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -43,6 +54,45 @@ if (!isset($_SESSION['loggedin'])) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/feedback.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+     <style>.containar1 {
+    max-width: 800px;
+    margin: auto;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.review-card {
+    background: #ffffff;
+    width: 800px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.review-card:hover {
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Review Text */
+.review-text {
+    font-size: 18px;
+    color: #444;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* Review Author */
+.review-author {
+    font-weight: bold;
+    color: #050505;
+    text-align: right;
+}
+
+</style>
 </head>
 
 <body>
@@ -70,9 +120,9 @@ if (!isset($_SESSION['loggedin'])) {
 
     <!-- ================ contact section start ================= -->
     <?php
+    $name = $_SESSION["username"];
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $details = $_POST['message'];
-        $name = $_SESSION["username"];
         $email = $_SESSION["user_email"];
 
         if(empty($details)) {
@@ -86,9 +136,11 @@ if (!isset($_SESSION['loggedin'])) {
             echo "<script>alert('Thank you for Feedback');</script>";
             
         }
+        
+        
     }
-    
-    
+    $sql = "SELECT * FROM `feedback_table` WHERE `username` LIKE '$name'";
+    $fetch = mysqli_query($connection, $sql);
 
     
     ?>
@@ -117,9 +169,48 @@ if (!isset($_SESSION['loggedin'])) {
                 </form>
             </div>
         </div>
+        <div class="containar">
+
+        <div class="container">
+    <h2 class="text-center mt-4">My feedback</h2>
+
+    <?php if (mysqli_num_rows($fetch) > 0) { ?>
+        <table class="table table-bordered mt-4">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Your feedback</th>
+                    <th>Date</th>
+
+                    <th>Reply</th>
+                    <th>Action</th> <!-- Cancel Button Column -->
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+             $i = 1;
+             while ($feed = mysqli_fetch_assoc($fetch)) {
+                echo "<tr>
+            <td>{$i}</td>
+            <td>{$feed['username']}</td>
+            <td>{$feed['feedback_message']}</td>
+            <td>{$feed['feedback_date']}</td>
+            <td>" . (!empty($feed['reply_message']) ? $feed['reply_message'] : '<span class="text-muted">No reply yet</span>') . "</td>
+            <td>
+                <a href='feedback.php?delete_id={$feed['feedback_id']}' class='btn btn-sm btn-danger' onclick='return confirm(\"Are you sure you want to delete this feedback?\")'>Delete</a>
+            </td>
+        </tr>";
+        $i++;
+             }?>
+            </tbody>
+        </table>
+    <?php } else { ?>
+        <p class="text-center m-4" style="color: red; font-size: 20px;">You have no give any feedback!</p>
+    <?php } ?>
+</div>
     </section>
     <!-- ================ contact section end ================= -->
- 
     <!-- footer start -->
     <?php
     include("footer.php");

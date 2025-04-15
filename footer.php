@@ -18,7 +18,7 @@
                                 <li><a href="https://www.facebook.com"><i class="ti-facebook"></i></a></li>
                                 <li><a href="https://x.com"><i class="ti-twitter-alt"></i></a></li>
                                 <li><a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
-                                </ul>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -37,14 +37,13 @@
                     <div class="footer_widget">
                         <h3 class="footer_title">Popular Destination</h3>
                         <ul class="links double_links">
-                            <li><a href="#">Gujarat</a></li>
-                            <li><a href="#">Mumbai</a></li>
-                            <li><a href="#">Delhi</a></li>
-                            <li><a href="#">Sikkim</a></li>
-                            <li><a href="#">Uttarakhand</a></li>
-                            <li><a href="#">Rajasthan</a></li>
-                            <li><a href="#">Punjab</a></li>
-                            <li><a href="#">Assam</a></li>
+                            <li><a href="package.php?location=manali">Manali</a></li>
+                            <li><a href="package.php?location=amritsar">Amritsar</a></li>
+                            <li><a href="package.php?location=delhi">Delhi</a></li>
+                            <li><a href="package.php?location=Dwarka">Dwarka</a></li>
+                            <li><a href="package.php?location=Jaipur">Jaipur</a></li> 
+                            <li><a href="package.php?location=Udaipur">Udaipur</a></li>
+                            <li><a href="package.php?location=Assam">Assam</a></li> 
                         </ul>
                     </div>
                 </div>
@@ -57,7 +56,9 @@
             <div class="row">
                 <div class="col-xl-12">
                     <p class="copy_right text-center">
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved by itravel
+                        Copyright &copy;<script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved by itravel
                     </p>
                 </div>
             </div>

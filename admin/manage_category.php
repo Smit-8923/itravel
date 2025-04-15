@@ -73,23 +73,25 @@ if (isset($_GET['delete_id'])) {
             <table class="table table-bordered table-hover bg-white shadow-sm">
                 <thead class="table-dark">
                     <tr>
-                        <th>ID</th>
+                        <th>No</th>
                         <th>Category Name</th>
                         <th class="action-column">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
+                    $i = 1;
                     $fetch_query = "SELECT * FROM category_table ORDER BY category_id DESC";
                     $result = mysqli_query($connection, $fetch_query);
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>
-                            <td>{$row['category_id']}</td>
+                            <td>{$i}</td>
                             <td>{$row['category_name']}</td>
                             <td class='action-column'>
-                                <a href='manage_category.php?delete_id={$row['category_id']}' class='btn btn-danger btn-sm' onclick='return confirm(\"Are you sure?\");'><i class='bi bi-trash'>Delete</i></a>
+                                <a href='manage_category.php?delete_id={$row['category_id']}' class='btn btn-danger btn-sm' onclick='return confirm(\"Are you sure?\");'><i class='bi bi-trash'></i>Delete</a>
                             </td>
                         </tr>";
+                        $i++;
                     }
                     ?>
                 </tbody>

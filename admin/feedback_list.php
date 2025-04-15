@@ -30,6 +30,7 @@ $feedback_result = mysqli_query($connection, $feedback_query);
     <title>Feedback List</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../img/faviconn.png">
     <style>
         body { display: flex; }
         .sidebar {

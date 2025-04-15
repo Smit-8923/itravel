@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="admin.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../img/faviconn.png">
 </head>
 <body class="login-page">
     

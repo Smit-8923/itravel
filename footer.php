@@ -43,7 +43,7 @@
                             <li><a href="package.php?location=Dwarka">Dwarka</a></li>
                             <li><a href="package.php?location=Jaipur">Jaipur</a></li> 
                             <li><a href="package.php?location=Udaipur">Udaipur</a></li>
-                            <li><a href="package.php?location=Assam">Assam</a></li> 
+                            <!-- <li><a href="package.php?location=Assam">Assam</a></li>  -->
                         </ul>
                     </div>
                 </div>
